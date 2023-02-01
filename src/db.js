@@ -98,14 +98,14 @@ export const data = [{
         time: new Date("2023-01-31 12:34"),
         pigs: 180
     },
-    {
-        id: 12,
-        vehicle: "a107aa77",
-        driver: "Филиппов Т.Т.",
-        place: "МХБ",
-        time: new Date("2023-01-31 13:52"),
-        pigs: 180
-    },
+    // {
+    //     id: 12,
+    //     vehicle: "a107aa77",
+    //     driver: "Филиппов Т.Т.",
+    //     place: "МХБ",
+    //     time: new Date("2023-01-31 13:52"),
+    //     pigs: 180
+    // },
     {
         id: 12,
         vehicle: "о777оо777",
@@ -120,8 +120,12 @@ export const data = [{
 export const places = [];
 
 for (let i = 0; i < data.length; i++) {
+    if (data[i].place === 'МХБ' || data[i].place === 'Мойка') continue;
     if (!places.includes(data[i].place)) {
         places.push(data[i].place)
+    }
+    if (i === data.length - 1) {
+        places.push('МХБ', 'Мойка')
     }
 }
 
